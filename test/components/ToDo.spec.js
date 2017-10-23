@@ -10,10 +10,14 @@ const localVue = createLocalVue();
 localVue.use(Vuex);
 localVue.use(Router);
 
+// Mock the `ADD` mutation to make it
+// possible to check if it was called.
 const mutations = {
   ADD: sinon.spy(),
 };
 
+// This function creates a new Vuex store
+// instance for every new test case.
 function createStore(items = []) {
   const modules = {
     todo: {
